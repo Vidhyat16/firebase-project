@@ -1,0 +1,47 @@
+<div class="wrapper">
+  <div id="formContent">
+    <form #locationForm="ngForm" (ngSubmit)="addUpdateLocation(locationForm);" *ngIf="fields">
+      <p class="text-center text-success" *ngIf="success">Data saved successfully</p>
+      <div class="fieldGroup">
+        <label>Retailer Name </label>
+        <input type="text" id="name" class="fadeIn second" name="name" placeholder="Retailer Name" required [(ngModel)]="fields.name"  #name="ngModel">
+        <div [hidden]="name.valid || name.pristine" class="small pl-3 small pl-3 text-danger">Name is required</div>
+      </div>
+      <div class="fieldGroup">
+        <label>ZipCode</label>
+        <input type="text" id="ZipCode" class="fadeIn third" name="ZipCode" placeholder="ZipCode" required [(ngModel)]="fields.zipCode" #zipCode="ngModel">
+        <div [hidden]="zipCode.valid || zipCode.pristine" class="small pl-3 text-danger">ZipCode is required</div>
+      </div>
+      <div class="fieldGroup">
+        <label>Hours of operation</label>
+        <input type="text" id="hours" class="fadeIn third" name="hours" placeholder="operation hours" required  [(ngModel)]="fields.hours" #hours="ngModel">
+        <div [hidden]="hours.valid || hours.pristine" class="small pl-3 text-danger">Operation hours is required</div>
+      </div>
+      <div class="fieldGroup">
+        <label>Mobile</label>
+        <input type="text" id="mobileNumber" class="fadeIn third" name="mobileNumber" pattern="[0-9 ]{10}" placeholder="Mobile Number" required  [(ngModel)]="fields.mobileNumber" #mobileNumber="ngModel">
+        <div [hidden]="mobileNumber.valid || mobileNumber.pristine" class="small pl-3 text-danger">
+          <ng-container *ngIf="mobileNumber.errors">
+            Please enter valid mobile number.
+          </ng-container>
+        </div>
+      </div>
+      <div class="fieldGroup">
+        <label>Latitude</label>
+        <input type="text" id="latitude" required class="fadeIn third" name="latitude" placeholder="Latitude"  [(ngModel)]="fields.latitude" #latitude="ngModel">
+        <div [hidden]="latitude.valid || latitude.pristine" class="small pl-3 text-danger">Latitude is required</div>
+      </div>
+      <div class="fieldGroup">
+        <label>Longitude</label>
+        <input type="text" id="longitude" class="fadeIn third" name="longitude" placeholder="Longitude" required [(ngModel)]="fields.longitude" #longitude="ngModel">
+        <div [hidden]="longitude.valid || longitude.pristine" class="small pl-3 text-danger">Longitude is required</div>
+      </div>
+      <div class="fieldGroup">
+        <label>Ticket</label>
+        <input type="text" id="ticket" class="fadeIn third" name="ticket" placeholder="Ticket" [(ngModel)]="fields.ticket" #ticket="ngModel">
+        <div [hidden]="ticket.valid || ticket.pristine" class="small pl-3 text-danger">Ticket is required</div>
+      </div>
+      <input type="submit" class="fadeIn fourth" value="Submit">
+    </form>
+  </div>
+</div>
